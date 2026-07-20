@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://cs3gho64so2gp"]
+
+[ext_resource type="Script" uid="uid://dx7uc2u2wudjh" path="res://main_node.gd" id="1_dhalm"]
+[ext_resource type="Texture2D" uid="uid://bos4oxjt3p2b0" path="res://default.png" id="1_lwogq"]
+[ext_resource type="Texture2D" uid="uid://c64ctw4xbbd6d" path="res://Arrow.png" id="2_yjirp"]
+[ext_resource type="Texture2D" uid="uid://cha7dxofahur7" path="res://default_color.png" id="3_bxfy6"]
+[ext_resource type="Texture2D" uid="uid://ie1v6tmq2wew" path="res://Hat.png" id="3_scfaf"]
+[ext_resource type="Script" uid="uid://r6xrex77bjrx" path="res://hideui.gd" id="5_621oa"]
+[ext_resource type="Theme" uid="uid://d3xpj2jcaq3xd" path="res://Theme/purpixeled/theme.tres" id="5_yjirp"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_d0u6y"]
+
+[sub_resource type="FontFile" id="FontFile_g4v7s"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_57qmd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3gngh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d0u6y"]
+
+[node name="Main Node" type="Node2D" unique_id=406033427]
+script = ExtResource("1_dhalm")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=589375501]
+position = Vector2(576.5, 320.75)
+scale = Vector2(1161, 642.5)
+texture = SubResource("CanvasTexture_d0u6y")
+
+[node name="Arrrow" type="Sprite2D" parent="." unique_id=188439835]
+position = Vector2(185, 305)
+scale = Vector2(0.42219996, 0.8121748)
+texture = ExtResource("2_yjirp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1930613641]
+unique_name_in_owner = true
+position = Vector2(568, 305)
+texture = ExtResource("1_lwogq")
+
+[node name="Hat" type="Sprite2D" parent="Sprite2D" unique_id=260942274]
+visible = false
+texture = ExtResource("3_scfaf")
+
+[node name="Sprite2DColor" type="Sprite2D" parent="Sprite2D" unique_id=1388708775]
+unique_name_in_owner = true
+texture = ExtResource("3_bxfy6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=404332217]
+
+[node name="Theme" type="Control" parent="CanvasLayer" unique_id=382423395]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("5_yjirp")
+
+[node name="HIDEUI" type="CheckButton" parent="CanvasLayer/Theme" unique_id=1441745341]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.09400006
+anchor_bottom = 0.036999512
+offset_left = 3.9999995
+offset_top = 551.0
+offset_right = 105.24
+offset_bottom = 589.52
+scale = Vector2(1.378658, 1.9281636)
+text = "HIDE UI"
+script = ExtResource("5_621oa")
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="CanvasLayer/Theme" unique_id=139849250]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorPicker" type="ColorPicker" parent="CanvasLayer/Theme/Control" unique_id=1471682557]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 815.0
+offset_top = 41.0
+offset_right = 1117.0
+offset_bottom = 648.0
+color = Color(0.70980394, 0.9019608, 0.1137255, 1)
+edit_alpha = false
+edit_intensity = false
+can_add_swatches = false
+sampler_visible = false
+color_modes_visible = false
+presets_visible = false
+
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer/Theme/Control" unique_id=1601929826]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.094000004
+anchor_bottom = 0.037
+offset_left = 44.999992
+offset_top = 60.0
+offset_right = 109.23999
+offset_bottom = 98.52
+scale = Vector2(3.0399218, 2.5281813)
+text = "HAT"
+
+[node name="TextEdit" type="LineEdit" parent="CanvasLayer/Theme" unique_id=1810756837]
+layout_mode = 0
+offset_left = 44.999985
+offset_top = 310.0
+offset_right = 187.94804
+offset_bottom = 389.71085
+scale = Vector2(1.8258381, 2.1327085)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.875, 0.875, 0.875, 0.6)
+theme_override_colors/caret_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/selection_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_fonts/font = SubResource("FontFile_g4v7s")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_57qmd")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_3gngh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d0u6y")
+text = "youre text here"
+virtual_keyboard_enabled = false
+
+[connection signal="toggled" from="CanvasLayer/Theme/HIDEUI" to="CanvasLayer/Theme/HIDEUI" method="_on_toggled"]
+[connection signal="toggled" from="CanvasLayer/Theme/Control/CheckButton" to="." method="_on_check_button_toggled"]
