@@ -10,6 +10,9 @@
 [ext_resource type="Script" uid="uid://r6xrex77bjrx" path="res://hideui.gd" id="7_ycdy4"]
 [ext_resource type="FontFile" uid="uid://k3nnirpuvlqx" path="res://arial.ttf" id="8_5vw27"]
 [ext_resource type="Texture2D" uid="uid://7dmfm6cjajnm" path="res://image.png" id="8_kek77"]
+[ext_resource type="Script" uid="uid://bnynwkbiupoan" path="res://image.gd" id="10_efxa6"]
+[ext_resource type="Script" uid="uid://csn2657yiiih7" path="res://texture_button.gd" id="11_ycdy4"]
+[ext_resource type="AudioStream" uid="uid://bgfhkpbdh86km" path="res://fnaf-12-3-freddys-nose-sound.mp3" id="12_w48qg"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_d0u6y"]
 
@@ -46,7 +49,19 @@ texture = ExtResource("5_4c57u")
 
 [node name="Sprite2DColor" type="Sprite2D" parent="Sprite2D" unique_id=1388708775]
 unique_name_in_owner = true
+clip_children = 2
 texture = ExtResource("5_efxa6")
+
+[node name="TextureRect" type="TextureRect" parent="Sprite2D/Sprite2DColor" unique_id=266263193]
+visible = false
+modulate = Color(1, 1, 1, 0.22352941)
+offset_left = -291.0
+offset_top = -274.0
+offset_right = 238.0
+offset_bottom = 279.0
+texture = ExtResource("8_kek77")
+stretch_mode = 1
+flip_v = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=404332217]
 
@@ -91,7 +106,7 @@ sampler_visible = false
 color_modes_visible = false
 presets_visible = false
 
-[node name="CheckButton" type="CheckButton" parent="CanvasLayer/Theme/Control" unique_id=1601929826]
+[node name="HatCheckButton" type="CheckButton" parent="CanvasLayer/Theme/Control" unique_id=1601929826]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.094000004
@@ -100,13 +115,63 @@ offset_left = 44.999992
 offset_top = 60.0
 offset_right = 109.23999
 offset_bottom = 98.52
-scale = Vector2(3.0399218, 2.5281813)
+scale = Vector2(2.0799222, 1.7297881)
 text = "HAT"
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Theme/Control" unique_id=262288066]
-position = Vector2(1071, 568)
-scale = Vector2(0.7412731, 0.664084)
-texture = ExtResource("8_kek77")
+[node name="Image" type="CheckButton" parent="CanvasLayer/Theme/Control" unique_id=1845326736]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.094000004
+anchor_bottom = 0.037
+offset_left = 43.0
+offset_top = 162.0
+offset_right = 126.24
+offset_bottom = 200.52
+scale = Vector2(2.0799222, 1.7297881)
+text = "IMAGE"
+script = ExtResource("10_efxa6")
+
+[node name="Button" type="Button" parent="CanvasLayer/Theme/Control/Image" unique_id=156460193]
+visible = false
+layout_mode = 0
+offset_left = -4.3270845
+offset_top = 46.248444
+offset_right = 83.67291
+offset_bottom = 75.24844
+text = "add image"
+
+[node name="FileDialog" type="FileDialog" parent="CanvasLayer/Theme/Control/Image" unique_id=810973519]
+title = "Open a File"
+file_mode = 0
+access = 2
+filters = PackedStringArray(".png", ".jpg", ".jpeg", ".poop")
+
+[node name="VSlider" type="VSlider" parent="CanvasLayer/Theme/Control/Image" unique_id=1280585283]
+visible = false
+layout_mode = 0
+offset_left = 88.46485
+offset_top = -82.09098
+offset_right = 120.46485
+offset_bottom = 68.905266
+max_value = 1.0
+step = 0.1
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Theme/Control" unique_id=739238452]
+layout_mode = 0
+offset_left = 982.0
+offset_top = 472.0
+offset_right = 1208.0
+offset_bottom = 694.0
+scale = Vector2(0.6870916, 0.7417299)
+texture_normal = ExtResource("8_kek77")
+texture_pressed = ExtResource("8_kek77")
+texture_hover = ExtResource("8_kek77")
+texture_disabled = ExtResource("8_kek77")
+texture_focused = ExtResource("8_kek77")
+script = ExtResource("11_ycdy4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Theme/Control/TextureButton" unique_id=1971753925]
+stream = ExtResource("12_w48qg")
 
 [node name="TextEdit" type="LineEdit" parent="CanvasLayer/Theme" unique_id=1810756837]
 layout_mode = 0
@@ -127,8 +192,12 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_57qmd")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_3gngh")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_d0u6y")
 text = "youre text here"
-virtual_keyboard_enabled = false
+virtual_keyboard_type = 4
 
 [connection signal="toggled" from="CanvasLayer/Theme/HIDEUI" to="CanvasLayer/Theme/HIDEUI" method="_on_toggled"]
 [connection signal="color_changed" from="CanvasLayer/Theme/Control/ColorPicker" to="." method="_on_color_picker_color_changed"]
-[connection signal="toggled" from="CanvasLayer/Theme/Control/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="CanvasLayer/Theme/Control/HatCheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="CanvasLayer/Theme/Control/Image" to="CanvasLayer/Theme/Control/Image" method="_on_toggled"]
+[connection signal="pressed" from="CanvasLayer/Theme/Control/Image/Button" to="CanvasLayer/Theme/Control/Image" method="_on_button_pressed"]
+[connection signal="file_selected" from="CanvasLayer/Theme/Control/Image/FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="value_changed" from="CanvasLayer/Theme/Control/Image/VSlider" to="." method="_on_v_slider_value_changed"]

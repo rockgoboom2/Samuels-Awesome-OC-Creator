@@ -2,6 +2,7 @@ extends Node2D
 @onready var sprite_2d_color: Sprite2D = %Sprite2DColor
 @onready var hat: Sprite2D = $Sprite2D/Hat
 @onready var hat_back: Sprite2D = $Sprite2D/Hat/Hat_Back
+@onready var texture_rect: TextureRect = $Sprite2D/Sprite2DColor/TextureRect
 
 @onready var color_picker: ColorPicker = %ColorPicker
 var hat_on = false
@@ -9,6 +10,7 @@ var hat_on = false
 var body_color: Color = Color(0.63, 0.935, 0.28, 1.0)
 var hat_color: Color = Color(0.545, 164.003, 190.588, 1.0)
 
+var body_image:Image = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,12 +28,10 @@ func _process(delta: float) -> void:
 		hat_back.set_modulate(color_picker.color)
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
-	if toggled_on:
-		hat_on = true
-		hat.show()
-	else:
-		hat_on = false
-		hat.hide()
+	
+	hat.visible = toggled_on
+	hat_on = toggled_on
+	
 
 
 func _on_color_picker_color_changed(color: Color) -> void:
@@ -39,3 +39,15 @@ func _on_color_picker_color_changed(color: Color) -> void:
 		hat_color = color
 	else:
 		body_color = color
+
+
+func _on_file_dialog_file_selected(path: String) -> void:
+	texture_rect.texture = load(path)
+	
+
+
+
+
+
+func _on_v_slider_value_changed(value: float) -> void:
+	texture_rect.modulate.a = value
