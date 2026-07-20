@@ -1,0 +1,196 @@
+[gd_scene format=3 uid="uid://cs3gho64so2gp"]
+
+[ext_resource type="Script" uid="uid://dx7uc2u2wudjh" path="res://main.gd" id="1_272bh"]
+[ext_resource type="Texture2D" uid="uid://c64ctw4xbbd6d" path="res://Arrow.png" id="2_5vw27"]
+[ext_resource type="Texture2D" uid="uid://bos4oxjt3p2b0" path="res://default.png" id="3_kek77"]
+[ext_resource type="Texture2D" uid="uid://ie1v6tmq2wew" path="res://Hat.png" id="4_4c57u"]
+[ext_resource type="Texture2D" uid="uid://c5eo0hgr2m6w4" path="res://HatBack.png" id="5_4c57u"]
+[ext_resource type="Texture2D" uid="uid://cha7dxofahur7" path="res://default_color.png" id="5_efxa6"]
+[ext_resource type="Theme" uid="uid://d3xpj2jcaq3xd" path="res://Theme/purpixeled/theme.tres" id="6_dg77c"]
+[ext_resource type="Script" uid="uid://r6xrex77bjrx" path="res://hideui.gd" id="7_ycdy4"]
+[ext_resource type="FontFile" uid="uid://k3nnirpuvlqx" path="res://arial.ttf" id="8_5vw27"]
+[ext_resource type="Texture2D" uid="uid://7dmfm6cjajnm" path="res://image.png" id="8_kek77"]
+[ext_resource type="Script" uid="uid://bnynwkbiupoan" path="res://image.gd" id="10_efxa6"]
+[ext_resource type="Script" uid="uid://csn2657yiiih7" path="res://texture_button.gd" id="11_ycdy4"]
+[ext_resource type="AudioStream" uid="uid://bgfhkpbdh86km" path="res://fnaf-12-3-freddys-nose-sound.mp3" id="12_w48qg"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_d0u6y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_57qmd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3gngh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d0u6y"]
+
+[node name="Main" type="Node2D" unique_id=406033427]
+script = ExtResource("1_272bh")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=589375501]
+position = Vector2(576.5, 320.75)
+scale = Vector2(1161, 642.5)
+texture = SubResource("CanvasTexture_d0u6y")
+
+[node name="Arrrow" type="Sprite2D" parent="." unique_id=188439835]
+position = Vector2(185, 305)
+scale = Vector2(0.42219996, 0.8121748)
+texture = ExtResource("2_5vw27")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1930613641]
+unique_name_in_owner = true
+position = Vector2(568, 305)
+texture = ExtResource("3_kek77")
+
+[node name="Hat" type="Sprite2D" parent="Sprite2D" unique_id=260942274]
+visible = false
+texture = ExtResource("4_4c57u")
+
+[node name="Hat_Back" type="Sprite2D" parent="Sprite2D/Hat" unique_id=478966706]
+texture = ExtResource("5_4c57u")
+
+[node name="Sprite2DColor" type="Sprite2D" parent="Sprite2D" unique_id=1388708775]
+unique_name_in_owner = true
+clip_children = 2
+texture = ExtResource("5_efxa6")
+
+[node name="TextureRect" type="TextureRect" parent="Sprite2D/Sprite2DColor" unique_id=266263193]
+visible = false
+modulate = Color(1, 1, 1, 0.22352941)
+offset_left = -291.0
+offset_top = -274.0
+offset_right = 238.0
+offset_bottom = 279.0
+texture = ExtResource("8_kek77")
+stretch_mode = 1
+flip_v = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=404332217]
+
+[node name="Theme" type="Control" parent="CanvasLayer" unique_id=382423395]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("6_dg77c")
+
+[node name="HIDEUI" type="CheckButton" parent="CanvasLayer/Theme" unique_id=1441745341]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.09400006
+anchor_bottom = 0.036999512
+offset_left = 3.9999995
+offset_top = 551.0
+offset_right = 105.24
+offset_bottom = 589.52
+scale = Vector2(1.378658, 1.9281636)
+text = "HIDE UI"
+script = ExtResource("7_ycdy4")
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="CanvasLayer/Theme" unique_id=139849250]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorPicker" type="ColorPicker" parent="CanvasLayer/Theme/Control" unique_id=1471682557]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 815.0
+offset_top = 41.0
+offset_right = 1117.0
+offset_bottom = 648.0
+color = Color(0.70980394, 0.9019608, 0.1137255, 0.8784314)
+edit_alpha = false
+edit_intensity = false
+can_add_swatches = false
+sampler_visible = false
+color_modes_visible = false
+presets_visible = false
+
+[node name="HatCheckButton" type="CheckButton" parent="CanvasLayer/Theme/Control" unique_id=1601929826]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.094000004
+anchor_bottom = 0.037
+offset_left = 44.999992
+offset_top = 60.0
+offset_right = 109.23999
+offset_bottom = 98.52
+scale = Vector2(2.0799222, 1.7297881)
+text = "HAT"
+
+[node name="Image" type="CheckButton" parent="CanvasLayer/Theme/Control" unique_id=1845326736]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.094000004
+anchor_bottom = 0.037
+offset_left = 43.0
+offset_top = 162.0
+offset_right = 126.24
+offset_bottom = 200.52
+scale = Vector2(2.0799222, 1.7297881)
+text = "IMAGE"
+script = ExtResource("10_efxa6")
+
+[node name="Button" type="Button" parent="CanvasLayer/Theme/Control/Image" unique_id=156460193]
+visible = false
+layout_mode = 0
+offset_left = -4.3270845
+offset_top = 46.248444
+offset_right = 83.67291
+offset_bottom = 75.24844
+text = "add image"
+
+[node name="VSlider" type="VSlider" parent="CanvasLayer/Theme/Control/Image" unique_id=1280585283]
+visible = false
+layout_mode = 0
+offset_left = 88.46485
+offset_top = -82.09098
+offset_right = 120.46485
+offset_bottom = 68.905266
+max_value = 1.0
+step = 0.1
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Theme/Control" unique_id=739238452]
+layout_mode = 0
+offset_left = 982.0
+offset_top = 472.0
+offset_right = 1208.0
+offset_bottom = 694.0
+scale = Vector2(0.6870916, 0.7417299)
+texture_normal = ExtResource("8_kek77")
+texture_pressed = ExtResource("8_kek77")
+texture_hover = ExtResource("8_kek77")
+texture_disabled = ExtResource("8_kek77")
+texture_focused = ExtResource("8_kek77")
+script = ExtResource("11_ycdy4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Theme/Control/TextureButton" unique_id=1971753925]
+stream = ExtResource("12_w48qg")
+
+[node name="TextEdit" type="LineEdit" parent="CanvasLayer/Theme" unique_id=1810756837]
+layout_mode = 0
+offset_left = 44.999985
+offset_top = 310.0
+offset_right = 187.94804
+offset_bottom = 389.71085
+scale = Vector2(1.8258381, 2.1327085)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.875, 0.875, 0.875, 0.6)
+theme_override_colors/caret_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/selection_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_57qmd")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_3gngh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d0u6y")
+text = "youre text here"
+virtual_keyboard_type = 4
+
+[connection signal="toggled" from="CanvasLayer/Theme/HIDEUI" to="CanvasLayer/Theme/HIDEUI" method="_on_toggled"]
+[connection signal="color_changed" from="CanvasLayer/Theme/Control/ColorPicker" to="." method="_on_color_picker_color_changed"]
+[connection signal="toggled" from="CanvasLayer/Theme/Control/HatCheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="CanvasLayer/Theme/Control/Image" to="CanvasLayer/Theme/Control/Image" method="_on_toggled"]
+[connection signal="pressed" from="CanvasLayer/Theme/Control/Image/Button" to="CanvasLayer/Theme/Control/Image" method="_on_button_pressed"]
+[connection signal="value_changed" from="CanvasLayer/Theme/Control/Image/VSlider" to="." method="_on_v_slider_value_changed"]

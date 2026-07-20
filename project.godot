@@ -26,7 +26,7 @@ mouse_cursor/custom_image="uid://dmmt62wht6t2t"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/html_5_file_exchange/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot-file-access-web-main/addons/FileAccessWeb/plugin.cfg")
 
 [physics]
 

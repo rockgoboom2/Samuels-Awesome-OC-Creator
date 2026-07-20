@@ -11,7 +11,6 @@
 [ext_resource type="FontFile" uid="uid://k3nnirpuvlqx" path="res://arial.ttf" id="8_5vw27"]
 [ext_resource type="Texture2D" uid="uid://7dmfm6cjajnm" path="res://image.png" id="8_kek77"]
 [ext_resource type="Script" uid="uid://bnynwkbiupoan" path="res://image.gd" id="10_efxa6"]
-[ext_resource type="Script" uid="uid://dsgjtbr1s4mdk" path="res://addons/html_5_file_exchange/html_5_file_exchange.gd" id="11_w48qg"]
 [ext_resource type="Script" uid="uid://csn2657yiiih7" path="res://texture_button.gd" id="11_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://bgfhkpbdh86km" path="res://fnaf-12-3-freddys-nose-sound.mp3" id="12_w48qg"]
 
@@ -141,10 +140,6 @@ offset_right = 83.67291
 offset_bottom = 75.24844
 text = "add image"
 
-[node name="Html5FileExchange" type="Node" parent="CanvasLayer/Theme/Control/Image" unique_id=352646089]
-script = ExtResource("11_w48qg")
-metadata/_custom_type_script = "uid://dsgjtbr1s4mdk"
-
 [node name="VSlider" type="VSlider" parent="CanvasLayer/Theme/Control/Image" unique_id=1280585283]
 visible = false
 layout_mode = 0
@@ -197,6 +192,5 @@ virtual_keyboard_type = 4
 [connection signal="color_changed" from="CanvasLayer/Theme/Control/ColorPicker" to="." method="_on_color_picker_color_changed"]
 [connection signal="toggled" from="CanvasLayer/Theme/Control/HatCheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="toggled" from="CanvasLayer/Theme/Control/Image" to="CanvasLayer/Theme/Control/Image" method="_on_toggled"]
-[connection signal="pressed" from="CanvasLayer/Theme/Control/Image/Button" to="CanvasLayer/Theme/Control/Image" method="_on_button_pressed"]
-[connection signal="file_loaded" from="CanvasLayer/Theme/Control/Image/Html5FileExchange" to="." method="_on_html_5_file_exchange_file_loaded"]
+[connection signal="pressed" from="CanvasLayer/Theme/Control/Image/Button" to="." method="_on_upload_button_pressed"]
 [connection signal="value_changed" from="CanvasLayer/Theme/Control/Image/VSlider" to="." method="_on_v_slider_value_changed"]

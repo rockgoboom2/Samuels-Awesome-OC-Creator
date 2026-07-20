@@ -5,6 +5,9 @@ extends Node2D
 @onready var texture_rect: TextureRect = $Sprite2D/Sprite2DColor/TextureRect
 
 @onready var color_picker: ColorPicker = %ColorPicker
+@onready var file_access_web = FileAccessWeb.new()
+
+
 var hat_on = false
 
 var body_color: Color = Color(0.63, 0.935, 0.28, 1.0)
@@ -14,6 +17,9 @@ var body_image:Image = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	file_access_web.loaded.connect(_on_file_loaded)
+	
 	sprite_2d_color.set_modulate(body_color)
 	hat_back.set_modulate(hat_color)
 
@@ -70,3 +76,38 @@ func _on_html_5_file_exchange_file_loaded(buffer: PackedByteArray, file_type: St
 		return
 		
 	texture_rect.texture = ImageTexture.create_from_image(image)
+
+
+func _on_upload_button_pressed() -> void:
+	file_access_web.open(".jpg .png")
+
+func _load_image(image: Image, type: String, data: PackedByteArray) -> int:
+	match type:
+		"image/png":
+			return image.load_png_from_buffer(data)
+		"image/jpeg":
+			return image.load_jpg_from_buffer(data)
+		"image/webp":
+			return image.load_webp_from_buffer(data)
+		_:
+			return Error.FAILED
+
+func raw_draw(type: String, data: PackedByteArray) -> void:
+	var image := Image.new()
+	var error: int = _load_image(image, type, data)
+	
+	if not error:
+		texture_rect.texture = _create_texture_from(image)
+	else:
+		push_error("Error %s id" % error)
+
+
+func _create_texture_from(image: Image) -> ImageTexture:
+	var texture = ImageTexture.new()
+	texture.set_image(image)
+	return texture
+
+
+func _on_file_loaded(file_name: String, type: String, base64_data: String) -> void:
+		var raw_data: PackedByteArray = Marshalls.base64_to_raw(base64_data)
+		raw_draw(type, raw_data)
