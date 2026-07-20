@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c64ctw4xbbd6d" path="res://Arrow.png" id="2_5vw27"]
 [ext_resource type="Texture2D" uid="uid://bos4oxjt3p2b0" path="res://default.png" id="3_kek77"]
 [ext_resource type="Texture2D" uid="uid://ie1v6tmq2wew" path="res://Hat.png" id="4_4c57u"]
+[ext_resource type="Texture2D" uid="uid://c5eo0hgr2m6w4" path="res://HatBack.png" id="5_4c57u"]
 [ext_resource type="Texture2D" uid="uid://cha7dxofahur7" path="res://default_color.png" id="5_efxa6"]
 [ext_resource type="Theme" uid="uid://d3xpj2jcaq3xd" path="res://Theme/purpixeled/theme.tres" id="6_dg77c"]
 [ext_resource type="Script" uid="uid://r6xrex77bjrx" path="res://hideui.gd" id="7_ycdy4"]
@@ -39,6 +40,9 @@ texture = ExtResource("3_kek77")
 [node name="Hat" type="Sprite2D" parent="Sprite2D" unique_id=260942274]
 visible = false
 texture = ExtResource("4_4c57u")
+
+[node name="Hat_Back" type="Sprite2D" parent="Sprite2D/Hat" unique_id=478966706]
+texture = ExtResource("5_4c57u")
 
 [node name="Sprite2DColor" type="Sprite2D" parent="Sprite2D" unique_id=1388708775]
 unique_name_in_owner = true
@@ -79,7 +83,7 @@ offset_left = 815.0
 offset_top = 41.0
 offset_right = 1117.0
 offset_bottom = 648.0
-color = Color(0.70980394, 0.9019608, 0.1137255, 1)
+color = Color(0.70980394, 0.9019608, 0.11372549, 0.8784314)
 edit_alpha = false
 edit_intensity = false
 can_add_swatches = false
@@ -126,4 +130,5 @@ text = "youre text here"
 virtual_keyboard_enabled = false
 
 [connection signal="toggled" from="CanvasLayer/Theme/HIDEUI" to="CanvasLayer/Theme/HIDEUI" method="_on_toggled"]
+[connection signal="color_changed" from="CanvasLayer/Theme/Control/ColorPicker" to="." method="_on_color_picker_color_changed"]
 [connection signal="toggled" from="CanvasLayer/Theme/Control/CheckButton" to="." method="_on_check_button_toggled"]
