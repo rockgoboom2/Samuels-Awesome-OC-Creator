@@ -8,6 +8,7 @@
 [ext_resource type="Theme" uid="uid://d3xpj2jcaq3xd" path="res://Theme/purpixeled/theme.tres" id="6_dg77c"]
 [ext_resource type="Script" uid="uid://r6xrex77bjrx" path="res://hideui.gd" id="7_ycdy4"]
 [ext_resource type="FontFile" uid="uid://k3nnirpuvlqx" path="res://arial.ttf" id="8_5vw27"]
+[ext_resource type="Texture2D" uid="uid://7dmfm6cjajnm" path="res://image.png" id="8_kek77"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_d0u6y"]
 
@@ -97,6 +98,11 @@ offset_right = 109.23999
 offset_bottom = 98.52
 scale = Vector2(3.0399218, 2.5281813)
 text = "HAT"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Theme/Control" unique_id=262288066]
+position = Vector2(1071, 568)
+scale = Vector2(0.7412731, 0.664084)
+texture = ExtResource("8_kek77")
 
 [node name="TextEdit" type="LineEdit" parent="CanvasLayer/Theme" unique_id=1810756837]
 layout_mode = 0
