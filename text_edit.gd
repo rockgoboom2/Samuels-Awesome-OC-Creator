@@ -1,14 +1,22 @@
 extends LineEdit
 
-@onready var is_html: bool = OS.has_feature("web")
+@onready var is_html := OS.has_feature("web")
 
-func _input(event: InputEvent) -> void:
-	if is_html and (event is InputEventMouseButton or event is InputEventScreenTouch):
-		if event.is_pressed():
-			accept_event()
-			
-			var new_text = JavaScriptBridge.eval('prompt("Enter text:", "%s");' % text)
-			
-			if new_text != null:
-				text = new_text.substr(0, max_length)
-				text_submitted.emit(text) # Godot 4 uses the new signal syntax
+func _gui_input(event: InputEvent) -> void:
+	if !is_html:
+		return
+
+	if event is InputEventScreenTouch and event.pressed:
+		accept_event()
+
+		var new_text = JavaScriptBridge.eval(
+			'prompt("Enter text:", "%s")' % text
+		)
+
+		if new_text != null:
+			text = str(new_text)
+			if max_length > 0:
+				text = text.substr(0, max_length)
+
+			text_changed.emit(text)
+			text_submitted.emit(text)
