@@ -24,6 +24,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 mouse_cursor/custom_image="uid://dmmt62wht6t2t"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/html_5_file_exchange/plugin.cfg")
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

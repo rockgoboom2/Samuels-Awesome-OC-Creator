@@ -42,7 +42,8 @@ func _on_color_picker_color_changed(color: Color) -> void:
 
 
 func _on_file_dialog_file_selected(path: String) -> void:
-	texture_rect.texture = load(path)
+	pass
+	#texture_rect.texture = load(path)
 	
 
 
@@ -51,3 +52,21 @@ func _on_file_dialog_file_selected(path: String) -> void:
 
 func _on_v_slider_value_changed(value: float) -> void:
 	texture_rect.modulate.a = value
+
+
+func _on_html_5_file_exchange_file_loaded(buffer: PackedByteArray, file_type: String, file_name: String) -> void:
+	var image = Image.new()
+	var error: Error
+	match file_type:
+		"image/png": error = image.load_png_from_buffer(buffer)
+		"image/jpeg": error = image.load_jpg_from_buffer(buffer)
+		"image/webp": error = image.load_webp_from_buffer(buffer)
+		_:
+			print("Non texture image format: ", file_type)
+			return
+	
+	if error != OK:
+		print("Failed to load image")
+		return
+		
+	texture_rect.texture = ImageTexture.create_from_image(image)

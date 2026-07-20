@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://k3nnirpuvlqx" path="res://arial.ttf" id="8_5vw27"]
 [ext_resource type="Texture2D" uid="uid://7dmfm6cjajnm" path="res://image.png" id="8_kek77"]
 [ext_resource type="Script" uid="uid://bnynwkbiupoan" path="res://image.gd" id="10_efxa6"]
+[ext_resource type="Script" uid="uid://dsgjtbr1s4mdk" path="res://addons/html_5_file_exchange/html_5_file_exchange.gd" id="11_w48qg"]
 [ext_resource type="Script" uid="uid://csn2657yiiih7" path="res://texture_button.gd" id="11_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://bgfhkpbdh86km" path="res://fnaf-12-3-freddys-nose-sound.mp3" id="12_w48qg"]
 
@@ -98,7 +99,7 @@ offset_left = 815.0
 offset_top = 41.0
 offset_right = 1117.0
 offset_bottom = 648.0
-color = Color(0.70980394, 0.9019608, 0.11372549, 0.8784314)
+color = Color(0.70980394, 0.9019608, 0.1137255, 0.8784314)
 edit_alpha = false
 edit_intensity = false
 can_add_swatches = false
@@ -140,11 +141,9 @@ offset_right = 83.67291
 offset_bottom = 75.24844
 text = "add image"
 
-[node name="FileDialog" type="FileDialog" parent="CanvasLayer/Theme/Control/Image" unique_id=810973519]
-title = "Open a File"
-file_mode = 0
-access = 2
-filters = PackedStringArray(".png", ".jpg", ".jpeg", ".poop")
+[node name="Html5FileExchange" type="Node" parent="CanvasLayer/Theme/Control/Image" unique_id=352646089]
+script = ExtResource("11_w48qg")
+metadata/_custom_type_script = "uid://dsgjtbr1s4mdk"
 
 [node name="VSlider" type="VSlider" parent="CanvasLayer/Theme/Control/Image" unique_id=1280585283]
 visible = false
@@ -199,5 +198,5 @@ virtual_keyboard_type = 4
 [connection signal="toggled" from="CanvasLayer/Theme/Control/HatCheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="toggled" from="CanvasLayer/Theme/Control/Image" to="CanvasLayer/Theme/Control/Image" method="_on_toggled"]
 [connection signal="pressed" from="CanvasLayer/Theme/Control/Image/Button" to="CanvasLayer/Theme/Control/Image" method="_on_button_pressed"]
-[connection signal="file_selected" from="CanvasLayer/Theme/Control/Image/FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="file_loaded" from="CanvasLayer/Theme/Control/Image/Html5FileExchange" to="." method="_on_html_5_file_exchange_file_loaded"]
 [connection signal="value_changed" from="CanvasLayer/Theme/Control/Image/VSlider" to="." method="_on_v_slider_value_changed"]
