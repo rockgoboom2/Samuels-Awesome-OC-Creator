@@ -79,7 +79,7 @@ func _on_html_5_file_exchange_file_loaded(buffer: PackedByteArray, file_type: St
 
 
 func _on_upload_button_pressed() -> void:
-	file_access_web.open(".jpg .png")
+	file_access_web.open()
 
 func _load_image(image: Image, type: String, data: PackedByteArray) -> int:
 	match type:
