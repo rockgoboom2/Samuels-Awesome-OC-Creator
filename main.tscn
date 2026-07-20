@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://bnynwkbiupoan" path="res://image.gd" id="10_efxa6"]
 [ext_resource type="Script" uid="uid://csn2657yiiih7" path="res://texture_button.gd" id="11_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://bgfhkpbdh86km" path="res://fnaf-12-3-freddys-nose-sound.mp3" id="12_w48qg"]
+[ext_resource type="Script" uid="uid://dbc4fk7qdfo0t" path="res://text_edit.gd" id="14_w48qg"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_d0u6y"]
 
@@ -187,6 +188,7 @@ theme_override_styles/read_only = SubResource("StyleBoxEmpty_3gngh")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_d0u6y")
 text = "youre text here"
 virtual_keyboard_type = 4
+script = ExtResource("14_w48qg")
 
 [connection signal="toggled" from="CanvasLayer/Theme/HIDEUI" to="CanvasLayer/Theme/HIDEUI" method="_on_toggled"]
 [connection signal="color_changed" from="CanvasLayer/Theme/Control/ColorPicker" to="." method="_on_color_picker_color_changed"]
