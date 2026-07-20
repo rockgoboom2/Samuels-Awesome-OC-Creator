@@ -7,29 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cha7dxofahur7" path="res://default_color.png" id="5_efxa6"]
 [ext_resource type="Theme" uid="uid://d3xpj2jcaq3xd" path="res://Theme/purpixeled/theme.tres" id="6_dg77c"]
 [ext_resource type="Script" uid="uid://r6xrex77bjrx" path="res://hideui.gd" id="7_ycdy4"]
+[ext_resource type="FontFile" uid="uid://k3nnirpuvlqx" path="res://arial.ttf" id="8_5vw27"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_d0u6y"]
-
-[sub_resource type="FontFile" id="FontFile_g4v7s"]
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/20/0/ascent = 0.0
-cache/0/20/0/descent = 0.0
-cache/0/20/0/underline_position = 0.0
-cache/0/20/0/underline_thickness = 0.0
-cache/0/20/0/scale = 1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_57qmd"]
 
@@ -131,7 +111,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.875, 0.875, 0.875, 0.6)
 theme_override_colors/caret_color = Color(0.875, 0.875, 0.875, 1)
 theme_override_colors/selection_color = Color(0.5, 0.5, 0.5, 1)
-theme_override_fonts/font = SubResource("FontFile_g4v7s")
+theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_57qmd")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_3gngh")
